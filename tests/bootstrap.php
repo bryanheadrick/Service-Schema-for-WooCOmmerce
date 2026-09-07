@@ -26,9 +26,17 @@ if ( ! file_exists( "{$_tests_dir}/includes/functions.php" ) ) {
 require_once "{$_tests_dir}/includes/functions.php";
 
 /**
- * Manually load the plugin being tested.
+ * Manually load WooCommerce and the plugin being tested.
  */
 function _manually_load_plugin() {
+	$woocommerce_plugin_file = WP_PLUGIN_DIR . '/woocommerce/woocommerce.php';
+
+	if ( ! file_exists( $woocommerce_plugin_file ) ) {
+		echo 'WooCommerce must be installed in wp-content/plugins/woocommerce for these tests to run.' . PHP_EOL; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		exit( 1 );
+	}
+
+	require $woocommerce_plugin_file;
 	require dirname( dirname( __FILE__ ) ) . '/service-schema-for-woocommerce.php';
 }
 
