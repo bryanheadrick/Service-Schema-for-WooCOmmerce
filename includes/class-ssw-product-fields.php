@@ -23,6 +23,17 @@ class SSW_Product_Fields {
 		add_action( 'woocommerce_product_data_panels', array( $this, 'render_service_panel' ) );
 		add_action( 'woocommerce_admin_process_product_object', array( $this, 'save_fields' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_script' ) );
+		add_action( 'woocommerce_new_product', array( $this, 'set_default_service_meta' ) );
+	}
+
+	/**
+	 * Defaults a newly created product's `_is_service` meta to 'no' so the
+	 * value is always a real 'yes'/'no' string rather than unset/empty.
+	 *
+	 * @param int $product_id Newly created product ID.
+	 */
+	public function set_default_service_meta( $product_id ) {
+		add_post_meta( $product_id, '_is_service', 'no', true );
 	}
 
 	/**
@@ -48,7 +59,7 @@ class SSW_Product_Fields {
 		$tabs['service'] = array(
 			'label'    => __( 'Service', 'service-schema-for-woocommerce' ),
 			'target'   => 'service_product_data',
-			'class'    => array( 'show_if_simple', 'show_if_variable', 'show_if_service' ),
+			'class'    => array( 'show_if_service' ),
 			'priority' => 25,
 		);
 
