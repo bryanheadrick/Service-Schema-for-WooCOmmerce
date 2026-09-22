@@ -1,0 +1,106 @@
+# Copyright (C) 2026 bryanheadrick
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Service Schema For Woocommerce 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/service-schema-for-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-22T16:54:12+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: service-schema-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: service-schema-for-woocommerce.php
+msgid "Service Schema For Woocommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: service-schema-for-woocommerce.php
+msgid "https://bryanheadrick.com"
+msgstr ""
+
+#. Description of the plugin
+#: service-schema-for-woocommerce.php
+msgid "Adds a \"Service\" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items."
+msgstr ""
+
+#. Author of the plugin
+#: service-schema-for-woocommerce.php
+msgid "bryanheadrick"
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:39
+#: includes/class-ssw-admin-settings.php:58
+msgid "Service Schema"
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:60
+msgid "Default values used for Service products that leave these fields blank."
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:64
+msgid "Default Provider Name"
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:65
+msgid "Falls back to your site title if left blank."
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:72
+msgid "Default Service Type"
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:73
+msgid "E.g. \"Plumbing\" or \"Consulting\". Left out of the structured data if blank."
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:80
+msgid "Default Area Served"
+msgstr ""
+
+#: includes/class-ssw-admin-settings.php:81
+msgid "E.g. \"Greater Boston Area\". Left out of the structured data if blank."
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:49
+#: includes/class-ssw-product-fields.php:65
+msgid "Service"
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:50
+msgid "This is a service (implies Virtual; outputs schema.org Service structured data)."
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:85
+msgid "Provider"
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:87
+msgid "Leave blank to use the site-wide default from WooCommerce > Settings > Products."
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:94
+msgid "Service Type"
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:96
+msgid "E.g. \"Plumbing\" or \"Consulting\". Leave blank to use the site-wide default."
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:103
+msgid "Area Served"
+msgstr ""
+
+#: includes/class-ssw-product-fields.php:105
+msgid "E.g. \"Greater Boston Area\". Leave blank to use the site-wide default."
+msgstr ""
+
+#: service-schema-for-woocommerce.php:58
+msgid "Service Schema for WooCommerce requires WooCommerce to be installed and active."
+msgstr ""

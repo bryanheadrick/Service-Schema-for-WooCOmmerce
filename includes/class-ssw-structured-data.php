@@ -19,6 +19,24 @@ class SSW_Structured_Data {
 	 */
 	public function __construct() {
 		add_filter( 'woocommerce_structured_data_product', array( $this, 'rewrite_markup' ), 20, 2 );
+		add_filter( 'woocommerce_structured_data_type_for_page', array( $this, 'add_service_data_type' ) );
+	}
+
+	/**
+	 * Ensures WC_Structured_Data::output_structured_data() doesn't drop our
+	 * rewritten markup: it buckets queued data by strtolower( @type ) and
+	 * only prints buckets present in this whitelist, which core hardcodes
+	 * to 'product' (never 'service') for product pages.
+	 *
+	 * @param array $types Structured data types allowed for the current page.
+	 * @return array
+	 */
+	public function add_service_data_type( $types ) {
+		if ( in_array( 'product', $types, true ) ) {
+			$types[] = 'service';
+		}
+
+		return $types;
 	}
 
 	/**
