@@ -16,6 +16,7 @@ Thumbs.db
 behat.yml
 bitbucket-pipelines.yml
 bin
+build
 .circleci
 .claude
 .superpowers

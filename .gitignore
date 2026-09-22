@@ -11,3 +11,4 @@ vendor/
 .superpowers/
 docker-compose.test.yml
 .remember/
+build/
