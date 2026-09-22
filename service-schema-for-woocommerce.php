@@ -2,7 +2,6 @@
 
 /**
  * Plugin Name:     Service Schema For WooCommerce
- * Plugin URI:      https://bryanheadrick.com
  * Description:     Adds a "Service" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items.
  * Author:          bryanheadrick
  * Author URI:      https://bryanheadrick.com
