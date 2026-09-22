@@ -1,18 +1,20 @@
 <?php
+
 /**
  * Registers the Service Schema settings section.
  *
- * @package Service_Schema_For_Woocommerce
+ * @package Service_Schema_For_WooCommerce
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
 /**
  * Adds the Service Schema section to WooCommerce > Settings > Products.
  */
-class SSW_Admin_Settings {
+class SSW_Admin_Settings
+{
 
 	/**
 	 * Section id used across the section list and settings filters.
@@ -24,9 +26,10 @@ class SSW_Admin_Settings {
 	/**
 	 * Registers hooks.
 	 */
-	public function __construct() {
-		add_filter( 'woocommerce_get_sections_products', array( $this, 'add_section' ) );
-		add_filter( 'woocommerce_get_settings_products', array( $this, 'add_settings' ), 10, 2 );
+	public function __construct()
+	{
+		add_filter('woocommerce_get_sections_products', array($this, 'add_section'));
+		add_filter('woocommerce_get_settings_products', array($this, 'add_settings'), 10, 2);
 	}
 
 	/**
@@ -35,8 +38,9 @@ class SSW_Admin_Settings {
 	 * @param array $sections Existing sections, keyed by section id.
 	 * @return array
 	 */
-	public function add_section( $sections ) {
-		$sections[ self::SECTION_ID ] = __( 'Service Schema', 'service-schema-for-woocommerce' );
+	public function add_section($sections)
+	{
+		$sections[self::SECTION_ID] = __('Service Schema', 'service-schema-for-woocommerce');
 
 		return $sections;
 	}
@@ -48,37 +52,38 @@ class SSW_Admin_Settings {
 	 * @param string $section_id Section currently being rendered/saved.
 	 * @return array
 	 */
-	public function add_settings( $settings, $section_id ) {
-		if ( self::SECTION_ID !== $section_id ) {
+	public function add_settings($settings, $section_id)
+	{
+		if (self::SECTION_ID !== $section_id) {
 			return $settings;
 		}
 
 		return array(
 			array(
-				'title' => __( 'Service Schema', 'service-schema-for-woocommerce' ),
+				'title' => __('Service Schema', 'service-schema-for-woocommerce'),
 				'type'  => 'title',
-				'desc'  => __( 'Default values used for Service products that leave these fields blank.', 'service-schema-for-woocommerce' ),
+				'desc'  => __('Default values used for Service products that leave these fields blank.', 'service-schema-for-woocommerce'),
 				'id'    => 'service_schema_wc_options',
 			),
 			array(
-				'title'   => __( 'Default Provider Name', 'service-schema-for-woocommerce' ),
-				'desc'    => __( 'Falls back to your site title if left blank.', 'service-schema-for-woocommerce' ),
+				'title'   => __('Default Provider Name', 'service-schema-for-woocommerce'),
+				'desc'    => __('Falls back to your site title if left blank.', 'service-schema-for-woocommerce'),
 				'id'      => 'service_schema_wc_default_provider',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
-				'title'   => __( 'Default Service Type', 'service-schema-for-woocommerce' ),
-				'desc'    => __( 'E.g. "Plumbing" or "Consulting". Left out of the structured data if blank.', 'service-schema-for-woocommerce' ),
+				'title'   => __('Default Service Type', 'service-schema-for-woocommerce'),
+				'desc'    => __('E.g. "Plumbing" or "Consulting". Left out of the structured data if blank.', 'service-schema-for-woocommerce'),
 				'id'      => 'service_schema_wc_default_service_type',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
-				'title'   => __( 'Default Area Served', 'service-schema-for-woocommerce' ),
-				'desc'    => __( 'E.g. "Greater Boston Area". Left out of the structured data if blank.', 'service-schema-for-woocommerce' ),
+				'title'   => __('Default Area Served', 'service-schema-for-woocommerce'),
+				'desc'    => __('E.g. "Greater Boston Area". Left out of the structured data if blank.', 'service-schema-for-woocommerce'),
 				'id'      => 'service_schema_wc_default_area_served',
 				'type'    => 'text',
 				'default' => '',

@@ -10,3 +10,4 @@ vendor/
 *.zip
 .superpowers/
 docker-compose.test.yml
+.remember/
