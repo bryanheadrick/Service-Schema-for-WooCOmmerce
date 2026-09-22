@@ -18,7 +18,7 @@ class SSW_Product_Fields {
 	 * Registers hooks.
 	 */
 	public function __construct() {
-		add_action( 'woocommerce_product_options_general_product_data', array( $this, 'render_service_checkbox' ) );
+		add_filter( 'product_type_options', array( $this, 'add_service_checkbox_option' ) );
 		add_filter( 'woocommerce_product_data_tabs', array( $this, 'add_service_tab' ) );
 		add_action( 'woocommerce_product_data_panels', array( $this, 'render_service_panel' ) );
 		add_action( 'woocommerce_admin_process_product_object', array( $this, 'save_fields' ) );
@@ -37,16 +37,21 @@ class SSW_Product_Fields {
 	}
 
 	/**
-	 * Renders the "This is a service" checkbox in the General tab.
+	 * Adds the "Service" checkbox alongside Virtual/Downloadable, next to the product type dropdown.
+	 *
+	 * @param array $options Existing product type options.
+	 * @return array
 	 */
-	public function render_service_checkbox() {
-		woocommerce_wp_checkbox(
-			array(
-				'id'          => '_is_service',
-				'label'       => __( 'Service', 'service-schema-for-woocommerce' ),
-				'description' => __( 'This is a service (implies Virtual; outputs schema.org Service structured data).', 'service-schema-for-woocommerce' ),
-			)
+	public function add_service_checkbox_option( $options ) {
+		$options['is_service'] = array(
+			'id'            => '_is_service',
+			'wrapper_class' => 'show_if_simple show_if_variable',
+			'label'         => __( 'Service', 'service-schema-for-woocommerce' ),
+			'description'   => __( 'This is a service (implies Virtual; outputs schema.org Service structured data).', 'service-schema-for-woocommerce' ),
+			'default'       => 'no',
 		);
+
+		return $options;
 	}
 
 	/**

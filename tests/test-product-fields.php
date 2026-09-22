@@ -62,4 +62,12 @@ class SSW_ProductFieldsTest extends WP_UnitTestCase {
 		$this->assertArrayHasKey( 'service', $tabs );
 		$this->assertSame( 'service_product_data', $tabs['service']['target'] );
 	}
+
+	public function test_product_type_options_includes_service_checkbox() {
+		$options = apply_filters( 'product_type_options', array() );
+
+		$this->assertArrayHasKey( 'is_service', $options );
+		$this->assertSame( '_is_service', $options['is_service']['id'] );
+		$this->assertNotEmpty( $options['is_service']['description'] );
+	}
 }
