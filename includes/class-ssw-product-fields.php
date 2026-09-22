@@ -169,7 +169,7 @@ class SSW_Product_Fields
 			'ssw-admin-product-service-tab',
 			plugins_url('assets/js/admin-product-service-tab.js', SSW_PLUGIN_FILE),
 			array('jquery'),
-			'0.1.0',
+			'0.1.1',
 			true
 		);
 	}
