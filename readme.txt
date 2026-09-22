@@ -1,4 +1,4 @@
-=== Service Schema For Woocommerce ===
+=== Service Schema For WooCommerce ===
 Contributors: bryanheadrick
 Tags: woocommerce, schema, structured-data, seo, service
 Requires at least: 6.0

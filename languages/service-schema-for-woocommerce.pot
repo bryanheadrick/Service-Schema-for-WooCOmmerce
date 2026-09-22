@@ -2,7 +2,7 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Service Schema For Woocommerce 0.1.0\n"
+"Project-Id-Version: Service Schema For WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/service-schema-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: service-schema-for-woocommerce.php
-msgid "Service Schema For Woocommerce"
+msgid "Service Schema For WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin

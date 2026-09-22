@@ -1,25 +1,28 @@
 <?php
+
 /**
  * Overrides structured data output for service products.
  *
- * @package Service_Schema_For_Woocommerce
+ * @package Service_Schema_For_WooCommerce
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
 /**
  * Rewrites JSON-LD markup to schema.org Service for flagged products.
  */
-class SSW_Structured_Data {
+class SSW_Structured_Data
+{
 
 	/**
 	 * Registers hooks.
 	 */
-	public function __construct() {
-		add_filter( 'woocommerce_structured_data_product', array( $this, 'rewrite_markup' ), 20, 2 );
-		add_filter( 'woocommerce_structured_data_type_for_page', array( $this, 'add_service_data_type' ) );
+	public function __construct()
+	{
+		add_filter('woocommerce_structured_data_product', array($this, 'rewrite_markup'), 20, 2);
+		add_filter('woocommerce_structured_data_type_for_page', array($this, 'add_service_data_type'));
 	}
 
 	/**
@@ -31,8 +34,9 @@ class SSW_Structured_Data {
 	 * @param array $types Structured data types allowed for the current page.
 	 * @return array
 	 */
-	public function add_service_data_type( $types ) {
-		if ( in_array( 'product', $types, true ) ) {
+	public function add_service_data_type($types)
+	{
+		if (in_array('product', $types, true)) {
 			$types[] = 'service';
 		}
 
@@ -46,19 +50,20 @@ class SSW_Structured_Data {
 	 * @param WC_Product $product Product the markup was built for.
 	 * @return array
 	 */
-	public function rewrite_markup( $markup, $product ) {
-		if ( 'yes' !== $product->get_meta( '_is_service', true ) ) {
+	public function rewrite_markup($markup, $product)
+	{
+		if ('yes' !== $product->get_meta('_is_service', true)) {
 			return $markup;
 		}
 
 		$markup['@type'] = 'Service';
 
-		unset( $markup['sku'], $markup['gtin'] );
+		unset($markup['sku'], $markup['gtin']);
 
-		$provider = $this->resolve_field( $product, '_service_provider', 'service_schema_wc_default_provider' );
+		$provider = $this->resolve_field($product, '_service_provider', 'service_schema_wc_default_provider');
 
-		if ( '' === $provider ) {
-			$provider = get_bloginfo( 'name' );
+		if ('' === $provider) {
+			$provider = get_bloginfo('name');
 		}
 
 		$markup['provider'] = array(
@@ -66,15 +71,15 @@ class SSW_Structured_Data {
 			'name'  => $provider,
 		);
 
-		$service_type = $this->resolve_field( $product, '_service_type', 'service_schema_wc_default_service_type' );
+		$service_type = $this->resolve_field($product, '_service_type', 'service_schema_wc_default_service_type');
 
-		if ( '' !== $service_type ) {
+		if ('' !== $service_type) {
 			$markup['serviceType'] = $service_type;
 		}
 
-		$area_served = $this->resolve_field( $product, '_service_area_served', 'service_schema_wc_default_area_served' );
+		$area_served = $this->resolve_field($product, '_service_area_served', 'service_schema_wc_default_area_served');
 
-		if ( '' !== $area_served ) {
+		if ('' !== $area_served) {
 			$markup['areaServed'] = $area_served;
 		}
 
@@ -89,13 +94,14 @@ class SSW_Structured_Data {
 	 * @param string     $option_key wp_options key for the site-wide default.
 	 * @return string
 	 */
-	private function resolve_field( $product, $meta_key, $option_key ) {
-		$value = $product->get_meta( $meta_key, true );
+	private function resolve_field($product, $meta_key, $option_key)
+	{
+		$value = $product->get_meta($meta_key, true);
 
-		if ( '' !== $value ) {
+		if ('' !== $value) {
 			return $value;
 		}
 
-		return get_option( $option_key, '' );
+		return get_option($option_key, '');
 	}
 }

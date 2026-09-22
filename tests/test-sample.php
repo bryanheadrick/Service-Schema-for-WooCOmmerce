@@ -1,20 +1,23 @@
 <?php
+
 /**
  * Class SampleTest
  *
- * @package Service_Schema_For_Woocommerce
+ * @package Service_Schema_For_WooCommerce
  */
 
 /**
  * Sample test case.
  */
-class SampleTest extends WP_UnitTestCase {
+class SampleTest extends WP_UnitTestCase
+{
 
 	/**
 	 * A single example test.
 	 */
-	public function test_sample() {
+	public function test_sample()
+	{
 		// Replace this with some actual testing code.
-		$this->assertTrue( true );
+		$this->assertTrue(true);
 	}
 }

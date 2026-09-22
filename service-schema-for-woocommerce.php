@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:     Service Schema For Woocommerce
+ * Plugin Name:     Service Schema For WooCommerce
  * Plugin URI:      https://bryanheadrick.com
  * Description:     Adds a "Service" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items.
  * Author:          bryanheadrick
@@ -10,7 +10,7 @@
  * Domain Path:     /languages
  * Version:         0.1.0
  *
- * @package         Service_Schema_For_Woocommerce
+ * @package         Service_Schema_For_WooCommerce
  *
  * Requires Plugins: woocommerce
  * License:          GPL v2 or later
@@ -29,19 +29,20 @@
  * along with this program. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'SSW_PLUGIN_FILE', __FILE__ );
-define( 'SSW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define('SSW_PLUGIN_FILE', __FILE__);
+define('SSW_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 /**
  * Boots the plugin once all plugins have loaded, guarding on WooCommerce being active.
  */
-function ssw_init() {
-	if ( ! class_exists( 'WooCommerce' ) ) {
-		add_action( 'admin_notices', 'ssw_missing_woocommerce_notice' );
+function ssw_init()
+{
+	if (! class_exists('WooCommerce')) {
+		add_action('admin_notices', 'ssw_missing_woocommerce_notice');
 		return;
 	}
 
@@ -53,20 +54,21 @@ function ssw_init() {
 	new SSW_Admin_Settings();
 	new SSW_Structured_Data();
 }
-add_action( 'plugins_loaded', 'ssw_init' );
+add_action('plugins_loaded', 'ssw_init');
 
 /**
  * Prints a contextual, non-persistent notice when WooCommerce is not active.
  */
-function ssw_missing_woocommerce_notice() {
+function ssw_missing_woocommerce_notice()
+{
 	$screen = get_current_screen();
 
-	if ( ! $screen || ! in_array( $screen->id, array( 'plugins', 'plugins-network' ), true ) ) {
+	if (! $screen || ! in_array($screen->id, array('plugins', 'plugins-network'), true)) {
 		return;
 	}
 
 	printf(
 		'<div class="notice notice-error"><p>%s</p></div>',
-		esc_html__( 'Service Schema for WooCommerce requires WooCommerce to be installed and active.', 'service-schema-for-woocommerce' )
+		esc_html__('Service Schema for WooCommerce requires WooCommerce to be installed and active.', 'service-schema-for-woocommerce')
 	);
 }
