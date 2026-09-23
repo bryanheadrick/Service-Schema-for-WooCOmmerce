@@ -51,8 +51,8 @@ class PLBL_Product_Fields
 		$options['plbl_is_service'] = array(
 			'id'            => '_plbl_is_service',
 			'wrapper_class' => 'show_if_simple show_if_variable',
-			'label'         => __('Service', 'plumbline-labs-service-schema-for-woocommerce'),
-			'description'   => __('This is a service (implies Virtual; outputs schema.org Service structured data).', 'plumbline-labs-service-schema-for-woocommerce'),
+			'label'         => __('Service', 'service-schema-for-woocommerce'),
+			'description'   => __('This is a service (implies Virtual; outputs schema.org Service structured data).', 'service-schema-for-woocommerce'),
 			'default'       => 'no',
 		);
 
@@ -68,7 +68,7 @@ class PLBL_Product_Fields
 	public function add_service_tab($tabs)
 	{
 		$tabs['plbl_service'] = array(
-			'label'    => __('Service', 'plumbline-labs-service-schema-for-woocommerce'),
+			'label'    => __('Service', 'service-schema-for-woocommerce'),
 			'target'   => 'plbl_service_product_data',
 			'class'    => array('show_if_plbl_service'),
 			'priority' => 25,
@@ -89,27 +89,27 @@ class PLBL_Product_Fields
 		woocommerce_wp_text_input(
 			array(
 				'id'          => '_plbl_service_provider',
-				'label'       => __('Provider', 'plumbline-labs-service-schema-for-woocommerce'),
+				'label'       => __('Provider', 'service-schema-for-woocommerce'),
 				'desc_tip'    => true,
-				'description' => __('Leave blank to use the site-wide default from WooCommerce > Settings > Products.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'description' => __('Leave blank to use the site-wide default from WooCommerce > Settings > Products.', 'service-schema-for-woocommerce'),
 			)
 		);
 
 		woocommerce_wp_text_input(
 			array(
 				'id'          => '_plbl_service_type',
-				'label'       => __('Service Type', 'plumbline-labs-service-schema-for-woocommerce'),
+				'label'       => __('Service Type', 'service-schema-for-woocommerce'),
 				'desc_tip'    => true,
-				'description' => __('E.g. "Plumbing" or "Consulting". Leave blank to use the site-wide default.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'description' => __('E.g. "Plumbing" or "Consulting". Leave blank to use the site-wide default.', 'service-schema-for-woocommerce'),
 			)
 		);
 
 		woocommerce_wp_text_input(
 			array(
 				'id'          => '_plbl_service_area_served',
-				'label'       => __('Area Served', 'plumbline-labs-service-schema-for-woocommerce'),
+				'label'       => __('Area Served', 'service-schema-for-woocommerce'),
 				'desc_tip'    => true,
-				'description' => __('E.g. "Greater Boston Area". Leave blank to use the site-wide default.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'description' => __('E.g. "Greater Boston Area". Leave blank to use the site-wide default.', 'service-schema-for-woocommerce'),
 			)
 		);
 

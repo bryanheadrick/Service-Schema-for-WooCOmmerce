@@ -5,7 +5,7 @@
  * Description:     Adds a "Service" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items.
  * Author:          Plumbline Labs
  * Author URI:      https://bryanheadrick.com
- * Text Domain:     plumbline-labs-service-schema-for-woocommerce
+ * Text Domain:     service-schema-for-woocommerce
  * Domain Path:     /languages
  * Version:         1.0.0
  * Requires PHP:    7.4
@@ -35,54 +35,6 @@ if (! defined('ABSPATH')) {
 
 define('PLBL_PLUGIN_FILE', __FILE__);
 define('PLBL_PLUGIN_DIR', plugin_dir_path(__FILE__));
-
-register_activation_hook(__FILE__, 'plbl_migrate_legacy_data');
-
-/**
- * One-time migration from the pre-rebrand `ssw`/unprefixed keys to the
- * `plbl_`-prefixed equivalents. Safe to run more than once: it only acts
- * on rows still stored under the legacy keys.
- */
-function plbl_migrate_legacy_data()
-{
-	global $wpdb;
-
-	$legacy_to_new_meta = array(
-		'_is_service'          => '_plbl_is_service',
-		'_service_provider'    => '_plbl_service_provider',
-		'_service_type'        => '_plbl_service_type',
-		'_service_area_served' => '_plbl_service_area_served',
-	);
-
-	foreach ($legacy_to_new_meta as $legacy_key => $new_key) {
-		$rows = $wpdb->get_results(
-			$wpdb->prepare(
-				"SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-				$legacy_key
-			)
-		); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-
-		foreach ($rows as $row) {
-			update_post_meta($row->post_id, $new_key, $row->meta_value);
-			delete_post_meta($row->post_id, $legacy_key);
-		}
-	}
-
-	$legacy_to_new_option = array(
-		'service_schema_wc_default_provider'     => 'plbl_default_provider',
-		'service_schema_wc_default_service_type' => 'plbl_default_service_type',
-		'service_schema_wc_default_area_served'  => 'plbl_default_area_served',
-	);
-
-	foreach ($legacy_to_new_option as $legacy_key => $new_key) {
-		$value = get_option($legacy_key, null);
-
-		if (null !== $value) {
-			update_option($new_key, $value);
-			delete_option($legacy_key);
-		}
-	}
-}
 
 /**
  * Boots the plugin once all plugins have loaded, guarding on WooCommerce being active.
@@ -117,6 +69,6 @@ function plbl_missing_woocommerce_notice()
 
 	printf(
 		'<div class="notice notice-error"><p>%s</p></div>',
-		esc_html__('Plumbline Labs Service Schema For WooCommerce requires WooCommerce to be installed and active.', 'plumbline-labs-service-schema-for-woocommerce')
+		esc_html__('Plumbline Labs Service Schema For WooCommerce requires WooCommerce to be installed and active.', 'service-schema-for-woocommerce')
 	);
 }

@@ -39,7 +39,7 @@ function _manually_load_plugin()
 	}
 
 	require $woocommerce_plugin_file;
-	require dirname(dirname(__FILE__)) . '/plumbline-labs-service-schema-for-woocommerce.php';
+	require dirname(dirname(__FILE__)) . '/service-schema-for-woocommerce.php';
 }
 
 tests_add_filter('muplugins_loaded', '_manually_load_plugin');

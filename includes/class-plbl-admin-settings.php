@@ -40,7 +40,7 @@ class PLBL_Admin_Settings
 	 */
 	public function add_section($sections)
 	{
-		$sections[self::SECTION_ID] = __('Service Schema', 'plumbline-labs-service-schema-for-woocommerce');
+		$sections[self::SECTION_ID] = __('Service Schema', 'service-schema-for-woocommerce');
 
 		return $sections;
 	}
@@ -60,30 +60,30 @@ class PLBL_Admin_Settings
 
 		return array(
 			array(
-				'title' => __('Service Schema', 'plumbline-labs-service-schema-for-woocommerce'),
+				'title' => __('Service Schema', 'service-schema-for-woocommerce'),
 				'type'  => 'title',
-				'desc'  => __('Default values used for Service products that leave these fields blank.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'desc'  => __('Default values used for Service products that leave these fields blank.', 'service-schema-for-woocommerce'),
 				'id'    => 'plbl_service_schema_options',
 			),
 			array(
-				'title'   => __('Default Provider Name', 'plumbline-labs-service-schema-for-woocommerce'),
-				'desc'    => __('Falls back to your site title if left blank.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'title'   => __('Default Provider Name', 'service-schema-for-woocommerce'),
+				'desc'    => __('Falls back to your site title if left blank.', 'service-schema-for-woocommerce'),
 				'id'      => 'plbl_default_provider',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
-				'title'   => __('Default Service Type', 'plumbline-labs-service-schema-for-woocommerce'),
-				'desc'    => __('E.g. "Plumbing" or "Consulting". Left out of the structured data if blank.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'title'   => __('Default Service Type', 'service-schema-for-woocommerce'),
+				'desc'    => __('E.g. "Plumbing" or "Consulting". Left out of the structured data if blank.', 'service-schema-for-woocommerce'),
 				'id'      => 'plbl_default_service_type',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
-				'title'   => __('Default Area Served', 'plumbline-labs-service-schema-for-woocommerce'),
-				'desc'    => __('E.g. "Greater Boston Area". Left out of the structured data if blank.', 'plumbline-labs-service-schema-for-woocommerce'),
+				'title'   => __('Default Area Served', 'service-schema-for-woocommerce'),
+				'desc'    => __('E.g. "Greater Boston Area". Left out of the structured data if blank.', 'service-schema-for-woocommerce'),
 				'id'      => 'plbl_default_area_served',
 				'type'    => 'text',
 				'default' => '',

@@ -2,35 +2,35 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plumbline Labs Service Schema For WooCommerce 0.1.1\n"
+"Project-Id-Version: Plumbline Labs Service Schema For WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/service-schema-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-23T13:54:27+00:00\n"
+"POT-Creation-Date: 2026-09-23T14:33:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: plumbline-labs-service-schema-for-woocommerce\n"
+"X-Domain: service-schema-for-woocommerce\n"
 
 #. Plugin Name of the plugin
-#: plumbline-labs-service-schema-for-woocommerce.php
+#: service-schema-for-woocommerce.php
 msgid "Plumbline Labs Service Schema For WooCommerce"
 msgstr ""
 
 #. Description of the plugin
-#: plumbline-labs-service-schema-for-woocommerce.php
+#: service-schema-for-woocommerce.php
 msgid "Adds a \"Service\" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items."
 msgstr ""
 
 #. Author of the plugin
-#: plumbline-labs-service-schema-for-woocommerce.php
+#: service-schema-for-woocommerce.php
 msgid "Plumbline Labs"
 msgstr ""
 
 #. Author URI of the plugin
-#: plumbline-labs-service-schema-for-woocommerce.php
+#: service-schema-for-woocommerce.php
 msgid "https://bryanheadrick.com"
 msgstr ""
 
@@ -100,6 +100,6 @@ msgstr ""
 msgid "E.g. \"Greater Boston Area\". Leave blank to use the site-wide default."
 msgstr ""
 
-#: plumbline-labs-service-schema-for-woocommerce.php:119
+#: service-schema-for-woocommerce.php:72
 msgid "Plumbline Labs Service Schema For WooCommerce requires WooCommerce to be installed and active."
 msgstr ""

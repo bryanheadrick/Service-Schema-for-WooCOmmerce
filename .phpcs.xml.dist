@@ -36,7 +36,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<!-- Value: replace the text domain used. -->
-			<property name="text_domain" type="array" value="plumbline-labs-service-schema-for-woocommerce"/>
+			<property name="text_domain" type="array" value="service-schema-for-woocommerce"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
