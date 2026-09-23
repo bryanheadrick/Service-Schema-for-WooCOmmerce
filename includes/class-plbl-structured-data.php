@@ -3,7 +3,7 @@
 /**
  * Overrides structured data output for service products.
  *
- * @package Service_Schema_For_WooCommerce
+ * @package Plumbline_Labs_Service_Schema_For_WooCommerce
  */
 
 if (! defined('ABSPATH')) {
@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
 /**
  * Rewrites JSON-LD markup to schema.org Service for flagged products.
  */
-class SSW_Structured_Data
+class PLBL_Structured_Data
 {
 
 	/**
@@ -52,7 +52,7 @@ class SSW_Structured_Data
 	 */
 	public function rewrite_markup($markup, $product)
 	{
-		if ('yes' !== $product->get_meta('_is_service', true)) {
+		if ('yes' !== $product->get_meta('_plbl_is_service', true)) {
 			return $markup;
 		}
 
@@ -60,7 +60,7 @@ class SSW_Structured_Data
 
 		unset($markup['sku'], $markup['gtin']);
 
-		$provider = $this->resolve_field($product, '_service_provider', 'service_schema_wc_default_provider');
+		$provider = $this->resolve_field($product, '_plbl_service_provider', 'plbl_default_provider');
 
 		if ('' === $provider) {
 			$provider = get_bloginfo('name');
@@ -71,13 +71,13 @@ class SSW_Structured_Data
 			'name'  => $provider,
 		);
 
-		$service_type = $this->resolve_field($product, '_service_type', 'service_schema_wc_default_service_type');
+		$service_type = $this->resolve_field($product, '_plbl_service_type', 'plbl_default_service_type');
 
 		if ('' !== $service_type) {
 			$markup['serviceType'] = $service_type;
 		}
 
-		$area_served = $this->resolve_field($product, '_service_area_served', 'service_schema_wc_default_area_served');
+		$area_served = $this->resolve_field($product, '_plbl_service_area_served', 'plbl_default_area_served');
 
 		if ('' !== $area_served) {
 			$markup['areaServed'] = $area_served;

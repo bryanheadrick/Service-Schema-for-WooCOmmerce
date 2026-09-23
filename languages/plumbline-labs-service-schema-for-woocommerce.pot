@@ -1,106 +1,105 @@
-# Copyright (C) 2026 bryanheadrick
+# Copyright (C) 2026 Plumbline Labs
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Service Schema For WooCommerce 0.1.0\n"
+"Project-Id-Version: Plumbline Labs Service Schema For WooCommerce 0.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/service-schema-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-22T16:54:12+00:00\n"
+"POT-Creation-Date: 2026-09-23T13:54:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: service-schema-for-woocommerce\n"
+"X-Domain: plumbline-labs-service-schema-for-woocommerce\n"
 
 #. Plugin Name of the plugin
-#: service-schema-for-woocommerce.php
-msgid "Service Schema For WooCommerce"
-msgstr ""
-
-#. Plugin URI of the plugin
-#. Author URI of the plugin
-#: service-schema-for-woocommerce.php
-msgid "https://bryanheadrick.com"
+#: plumbline-labs-service-schema-for-woocommerce.php
+msgid "Plumbline Labs Service Schema For WooCommerce"
 msgstr ""
 
 #. Description of the plugin
-#: service-schema-for-woocommerce.php
+#: plumbline-labs-service-schema-for-woocommerce.php
 msgid "Adds a \"Service\" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items."
 msgstr ""
 
 #. Author of the plugin
-#: service-schema-for-woocommerce.php
-msgid "bryanheadrick"
+#: plumbline-labs-service-schema-for-woocommerce.php
+msgid "Plumbline Labs"
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:39
-#: includes/class-ssw-admin-settings.php:58
+#. Author URI of the plugin
+#: plumbline-labs-service-schema-for-woocommerce.php
+msgid "https://bryanheadrick.com"
+msgstr ""
+
+#: includes/class-plbl-admin-settings.php:43
+#: includes/class-plbl-admin-settings.php:63
 msgid "Service Schema"
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:60
+#: includes/class-plbl-admin-settings.php:65
 msgid "Default values used for Service products that leave these fields blank."
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:64
+#: includes/class-plbl-admin-settings.php:69
 msgid "Default Provider Name"
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:65
+#: includes/class-plbl-admin-settings.php:70
 msgid "Falls back to your site title if left blank."
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:72
+#: includes/class-plbl-admin-settings.php:77
 msgid "Default Service Type"
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:73
+#: includes/class-plbl-admin-settings.php:78
 msgid "E.g. \"Plumbing\" or \"Consulting\". Left out of the structured data if blank."
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:80
+#: includes/class-plbl-admin-settings.php:85
 msgid "Default Area Served"
 msgstr ""
 
-#: includes/class-ssw-admin-settings.php:81
+#: includes/class-plbl-admin-settings.php:86
 msgid "E.g. \"Greater Boston Area\". Left out of the structured data if blank."
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:49
-#: includes/class-ssw-product-fields.php:65
+#: includes/class-plbl-product-fields.php:54
+#: includes/class-plbl-product-fields.php:71
 msgid "Service"
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:50
+#: includes/class-plbl-product-fields.php:55
 msgid "This is a service (implies Virtual; outputs schema.org Service structured data)."
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:85
+#: includes/class-plbl-product-fields.php:92
 msgid "Provider"
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:87
+#: includes/class-plbl-product-fields.php:94
 msgid "Leave blank to use the site-wide default from WooCommerce > Settings > Products."
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:94
+#: includes/class-plbl-product-fields.php:101
 msgid "Service Type"
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:96
+#: includes/class-plbl-product-fields.php:103
 msgid "E.g. \"Plumbing\" or \"Consulting\". Leave blank to use the site-wide default."
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:103
+#: includes/class-plbl-product-fields.php:110
 msgid "Area Served"
 msgstr ""
 
-#: includes/class-ssw-product-fields.php:105
+#: includes/class-plbl-product-fields.php:112
 msgid "E.g. \"Greater Boston Area\". Leave blank to use the site-wide default."
 msgstr ""
 
-#: service-schema-for-woocommerce.php:58
-msgid "Service Schema for WooCommerce requires WooCommerce to be installed and active."
+#: plumbline-labs-service-schema-for-woocommerce.php:119
+msgid "Plumbline Labs Service Schema For WooCommerce requires WooCommerce to be installed and active."
 msgstr ""

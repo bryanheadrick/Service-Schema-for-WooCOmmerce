@@ -3,7 +3,7 @@
 /**
  * Registers Service product fields.
  *
- * @package Service_Schema_For_WooCommerce
+ * @package Plumbline_Labs_Service_Schema_For_WooCommerce
  */
 
 if (! defined('ABSPATH')) {
@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
 /**
  * Adds the Service checkbox and tab to the product data panel.
  */
-class SSW_Product_Fields
+class PLBL_Product_Fields
 {
 
 	/**
@@ -30,14 +30,14 @@ class SSW_Product_Fields
 	}
 
 	/**
-	 * Defaults a newly created product's `_is_service` meta to 'no' so the
+	 * Defaults a newly created product's `_plbl_is_service` meta to 'no' so the
 	 * value is always a real 'yes'/'no' string rather than unset/empty.
 	 *
 	 * @param int $product_id Newly created product ID.
 	 */
 	public function set_default_service_meta($product_id)
 	{
-		add_post_meta($product_id, '_is_service', 'no', true);
+		add_post_meta($product_id, '_plbl_is_service', 'no', true);
 	}
 
 	/**
@@ -48,11 +48,11 @@ class SSW_Product_Fields
 	 */
 	public function add_service_checkbox_option($options)
 	{
-		$options['is_service'] = array(
-			'id'            => '_is_service',
+		$options['plbl_is_service'] = array(
+			'id'            => '_plbl_is_service',
 			'wrapper_class' => 'show_if_simple show_if_variable',
-			'label'         => __('Service', 'service-schema-for-woocommerce'),
-			'description'   => __('This is a service (implies Virtual; outputs schema.org Service structured data).', 'service-schema-for-woocommerce'),
+			'label'         => __('Service', 'plumbline-labs-service-schema-for-woocommerce'),
+			'description'   => __('This is a service (implies Virtual; outputs schema.org Service structured data).', 'plumbline-labs-service-schema-for-woocommerce'),
 			'default'       => 'no',
 		);
 
@@ -67,10 +67,10 @@ class SSW_Product_Fields
 	 */
 	public function add_service_tab($tabs)
 	{
-		$tabs['service'] = array(
-			'label'    => __('Service', 'service-schema-for-woocommerce'),
-			'target'   => 'service_product_data',
-			'class'    => array('show_if_service'),
+		$tabs['plbl_service'] = array(
+			'label'    => __('Service', 'plumbline-labs-service-schema-for-woocommerce'),
+			'target'   => 'plbl_service_product_data',
+			'class'    => array('show_if_plbl_service'),
 			'priority' => 25,
 		);
 
@@ -82,34 +82,34 @@ class SSW_Product_Fields
 	 */
 	public function render_service_panel()
 	{
-		echo '<div id="service_product_data" class="panel woocommerce_options_panel">';
+		echo '<div id="plbl_service_product_data" class="panel woocommerce_options_panel">';
 
 		echo '<div class="options_group">';
 
 		woocommerce_wp_text_input(
 			array(
-				'id'          => '_service_provider',
-				'label'       => __('Provider', 'service-schema-for-woocommerce'),
+				'id'          => '_plbl_service_provider',
+				'label'       => __('Provider', 'plumbline-labs-service-schema-for-woocommerce'),
 				'desc_tip'    => true,
-				'description' => __('Leave blank to use the site-wide default from WooCommerce > Settings > Products.', 'service-schema-for-woocommerce'),
+				'description' => __('Leave blank to use the site-wide default from WooCommerce > Settings > Products.', 'plumbline-labs-service-schema-for-woocommerce'),
 			)
 		);
 
 		woocommerce_wp_text_input(
 			array(
-				'id'          => '_service_type',
-				'label'       => __('Service Type', 'service-schema-for-woocommerce'),
+				'id'          => '_plbl_service_type',
+				'label'       => __('Service Type', 'plumbline-labs-service-schema-for-woocommerce'),
 				'desc_tip'    => true,
-				'description' => __('E.g. "Plumbing" or "Consulting". Leave blank to use the site-wide default.', 'service-schema-for-woocommerce'),
+				'description' => __('E.g. "Plumbing" or "Consulting". Leave blank to use the site-wide default.', 'plumbline-labs-service-schema-for-woocommerce'),
 			)
 		);
 
 		woocommerce_wp_text_input(
 			array(
-				'id'          => '_service_area_served',
-				'label'       => __('Area Served', 'service-schema-for-woocommerce'),
+				'id'          => '_plbl_service_area_served',
+				'label'       => __('Area Served', 'plumbline-labs-service-schema-for-woocommerce'),
 				'desc_tip'    => true,
-				'description' => __('E.g. "Greater Boston Area". Leave blank to use the site-wide default.', 'service-schema-for-woocommerce'),
+				'description' => __('E.g. "Greater Boston Area". Leave blank to use the site-wide default.', 'plumbline-labs-service-schema-for-woocommerce'),
 			)
 		);
 
@@ -124,27 +124,27 @@ class SSW_Product_Fields
 	 */
 	public function save_fields($product)
 	{
-		$is_service = isset($_POST['_is_service']) ? 'yes' : 'no'; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- core's own product save handler verifies the nonce before this hook fires.
+		$is_service = isset($_POST['_plbl_is_service']) ? 'yes' : 'no'; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- core's own product save handler verifies the nonce before this hook fires.
 
-		$product->update_meta_data('_is_service', $is_service);
+		$product->update_meta_data('_plbl_is_service', $is_service);
 
 		if ('yes' === $is_service) {
 			$product->set_virtual(true);
 		}
 
 		$product->update_meta_data(
-			'_service_provider',
-			isset($_POST['_service_provider']) ? sanitize_text_field(wp_unslash($_POST['_service_provider'])) : '' // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			'_plbl_service_provider',
+			isset($_POST['_plbl_service_provider']) ? sanitize_text_field(wp_unslash($_POST['_plbl_service_provider'])) : '' // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		);
 
 		$product->update_meta_data(
-			'_service_type',
-			isset($_POST['_service_type']) ? sanitize_text_field(wp_unslash($_POST['_service_type'])) : '' // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			'_plbl_service_type',
+			isset($_POST['_plbl_service_type']) ? sanitize_text_field(wp_unslash($_POST['_plbl_service_type'])) : '' // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		);
 
 		$product->update_meta_data(
-			'_service_area_served',
-			isset($_POST['_service_area_served']) ? sanitize_text_field(wp_unslash($_POST['_service_area_served'])) : '' // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			'_plbl_service_area_served',
+			isset($_POST['_plbl_service_area_served']) ? sanitize_text_field(wp_unslash($_POST['_plbl_service_area_served'])) : '' // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		);
 	}
 
@@ -166,8 +166,8 @@ class SSW_Product_Fields
 		}
 
 		wp_enqueue_script(
-			'ssw-admin-product-service-tab',
-			plugins_url('assets/js/admin-product-service-tab.js', SSW_PLUGIN_FILE),
+			'plbl-admin-product-service-tab',
+			plugins_url('assets/js/admin-product-service-tab.js', PLBL_PLUGIN_FILE),
 			array('jquery'),
 			'0.1.1',
 			true

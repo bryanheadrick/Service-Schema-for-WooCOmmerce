@@ -30,13 +30,13 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
-			<property name="prefixes" type="array" value="ssw,SSW_"/>
+			<property name="prefixes" type="array" value="plbl,PLBL_"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<!-- Value: replace the text domain used. -->
-			<property name="text_domain" type="array" value="service-schema-for-woocommerce"/>
+			<property name="text_domain" type="array" value="plumbline-labs-service-schema-for-woocommerce"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">

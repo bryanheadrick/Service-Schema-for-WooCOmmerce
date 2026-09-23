@@ -1,4 +1,4 @@
-=== Service Schema For WooCommerce ===
+=== Plumbline Labs Service Schema For WooCommerce ===
 Contributors: bryanheadrick
 Tags: woocommerce, schema, structured-data, seo, service
 Requires at least: 6.0
@@ -14,13 +14,13 @@ Mark WooCommerce products as services and output schema.org Service structured d
 
 == Description ==
 
-Service Schema for WooCommerce adds a "This is a service" option to Simple and Variable products. When enabled, the plugin changes the product's JSON-LD structured data `@type` from `Product` to `Service` (https://schema.org/Service), and lets you specify a provider, service type, and area served — either per product or as site-wide defaults under WooCommerce > Settings > Products.
+Plumbline Labs Service Schema For WooCommerce adds a "This is a service" option to Simple and Variable products. When enabled, the plugin changes the product's JSON-LD structured data `@type` from `Product` to `Service` (https://schema.org/Service), and lets you specify a provider, service type, and area served — either per product or as site-wide defaults under WooCommerce > Settings > Products.
 
 This plugin makes no external network requests and collects no data.
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/service-schema-for-woocommerce` directory, or install through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/plumbline-labs-service-schema-for-woocommerce` directory, or install through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress.
 1. Requires WooCommerce to be installed and active.
 1. Edit a Simple or Variable product, check "This is a service" in the General tab, and fill in the new Service tab fields.
@@ -37,6 +37,9 @@ No. "Service" is a flag on existing Simple and Variable products, similar to the
 No, only Simple and Variable products support the Service flag.
 
 == Changelog ==
+
+= 0.1.1 =
+* Rebranded to Plumbline Labs Service Schema For WooCommerce; all functions, classes, constants, stored options, and product meta keys now use the `plbl_` prefix.
 
 = 0.1.0 =
 * Initial release.
