@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 8.0
 WC tested up to: 10.0
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,7 +38,11 @@ No, only Simple and Variable products support the Service flag.
 
 == Changelog ==
 
-= 1.0.0 = 
+= 1.1.0 =
+* Reverted the plugin slug and text domain to `service-schema-for-woocommerce` to match the identifier already registered on WordPress.org; the "Plumbline Labs" branding remains in the plugin name.
+* Removed the one-time activation migration for legacy meta/option keys.
+
+= 1.0.0 =
 * update PHP version requirement to match WooCommerce
 
 = 0.1.1 =
