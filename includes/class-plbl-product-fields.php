@@ -169,7 +169,7 @@ class PLBL_Product_Fields
 			'plbl-admin-product-service-tab',
 			plugins_url('assets/js/admin-product-service-tab.js', PLBL_PLUGIN_FILE),
 			array('jquery'),
-			'0.1.1',
+			'1.1.0',
 			true
 		);
 	}
