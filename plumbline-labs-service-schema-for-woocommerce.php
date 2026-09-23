@@ -7,7 +7,7 @@
  * Author URI:      https://bryanheadrick.com
  * Text Domain:     plumbline-labs-service-schema-for-woocommerce
  * Domain Path:     /languages
- * Version:         0.1.1
+ * Version:         1.0.0
  * Requires PHP:    7.4
  *
  * @package         Plumbline_Labs_Service_Schema_For_WooCommerce

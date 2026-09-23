@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 8.0
 WC tested up to: 10.0
-Stable tag: 0.1.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,9 @@ No. "Service" is a flag on existing Simple and Variable products, similar to the
 No, only Simple and Variable products support the Service flag.
 
 == Changelog ==
+
+= 1.0.0 = 
+* update PHP version requirement to match WooCommerce
 
 = 0.1.1 =
 * Rebranded to Plumbline Labs Service Schema For WooCommerce; all functions, classes, constants, stored options, and product meta keys now use the `plbl_` prefix.
