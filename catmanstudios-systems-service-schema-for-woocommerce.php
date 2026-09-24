@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Plugin Name:     Plumbline Labs Service Schema For WooCommerce
+ * Plugin Name:     CatManStudios Systems Service Schema For WooCommerce
  * Description:     Adds a "Service" option to WooCommerce products and outputs schema.org Service structured data instead of Product for those items.
- * Author:          Plumbline Labs
+ * Author:          bryanheadrick
  * Author URI:      https://bryanheadrick.com
- * Text Domain:     service-schema-for-woocommerce
+ * Text Domain:     catmanstudios-systems-service-schema-for-woocommerce
  * Domain Path:     /languages
- * Version:         1.1.0
+ * Version:         1.4.0
  * Requires PHP:    7.4
  *
- * @package         Plumbline_Labs_Service_Schema_For_WooCommerce
+ * @package         CatManStudios_Systems_Service_Schema_For_WooCommerce
  *
  * Requires Plugins: woocommerce
  * License:          GPL v2 or later
@@ -33,33 +33,33 @@ if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-define('PLBL_PLUGIN_FILE', __FILE__);
-define('PLBL_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('CMSS_PLUGIN_FILE', __FILE__);
+define('CMSS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 /**
  * Boots the plugin once all plugins have loaded, guarding on WooCommerce being active.
  */
-function plbl_init()
+function cmss_init()
 {
 	if (! class_exists('WooCommerce')) {
-		add_action('admin_notices', 'plbl_missing_woocommerce_notice');
+		add_action('admin_notices', 'cmss_missing_woocommerce_notice');
 		return;
 	}
 
-	require_once PLBL_PLUGIN_DIR . 'includes/class-plbl-product-fields.php';
-	require_once PLBL_PLUGIN_DIR . 'includes/class-plbl-admin-settings.php';
-	require_once PLBL_PLUGIN_DIR . 'includes/class-plbl-structured-data.php';
+	require_once CMSS_PLUGIN_DIR . 'includes/class-cmss-product-fields.php';
+	require_once CMSS_PLUGIN_DIR . 'includes/class-cmss-admin-settings.php';
+	require_once CMSS_PLUGIN_DIR . 'includes/class-cmss-structured-data.php';
 
-	new PLBL_Product_Fields();
-	new PLBL_Admin_Settings();
-	new PLBL_Structured_Data();
+	new CMSS_Product_Fields();
+	new CMSS_Admin_Settings();
+	new CMSS_Structured_Data();
 }
-add_action('plugins_loaded', 'plbl_init');
+add_action('plugins_loaded', 'cmss_init');
 
 /**
  * Prints a contextual, non-persistent notice when WooCommerce is not active.
  */
-function plbl_missing_woocommerce_notice()
+function cmss_missing_woocommerce_notice()
 {
 	$screen = get_current_screen();
 
@@ -69,6 +69,6 @@ function plbl_missing_woocommerce_notice()
 
 	printf(
 		'<div class="notice notice-error"><p>%s</p></div>',
-		esc_html__('Plumbline Labs Service Schema For WooCommerce requires WooCommerce to be installed and active.', 'service-schema-for-woocommerce')
+		esc_html__('CatManStudios Systems Service Schema For WooCommerce requires WooCommerce to be installed and active.', 'catmanstudios-systems-service-schema-for-woocommerce')
 	);
 }

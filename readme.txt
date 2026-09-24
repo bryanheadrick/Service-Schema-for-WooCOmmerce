@@ -1,4 +1,4 @@
-=== Plumbline Labs Service Schema For WooCommerce ===
+=== CatManStudios Systems Service Schema For WooCommerce ===
 Contributors: bryanheadrick
 Tags: woocommerce, schema, structured-data, seo, service
 Requires at least: 6.0
@@ -6,7 +6,7 @@ Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 8.0
 WC tested up to: 10.0
-Stable tag: 1.1.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,13 +14,13 @@ Mark WooCommerce products as services and output schema.org Service structured d
 
 == Description ==
 
-Plumbline Labs Service Schema For WooCommerce adds a "This is a service" option to Simple and Variable products. When enabled, the plugin changes the product's JSON-LD structured data `@type` from `Product` to `Service` (https://schema.org/Service), and lets you specify a provider, service type, and area served — either per product or as site-wide defaults under WooCommerce > Settings > Products.
+CatManStudios Systems Service Schema For WooCommerce adds a "This is a service" option to Simple and Variable products. When enabled, the plugin changes the product's JSON-LD structured data `@type` from `Product` to `Service` (https://schema.org/Service), and lets you specify a provider, service type, and area served — either per product or as site-wide defaults under WooCommerce > Settings > Products.
 
 This plugin makes no external network requests and collects no data.
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/service-schema-for-woocommerce` directory, or install through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/catmanstudios-systems-service-schema-for-woocommerce` directory, or install through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress.
 1. Requires WooCommerce to be installed and active.
 1. Edit a Simple or Variable product, check "This is a service" in the General tab, and fill in the new Service tab fields.
@@ -38,15 +38,24 @@ No, only Simple and Variable products support the Service flag.
 
 == Changelog ==
 
+= 1.4.0 =
+* Rebranded from Aplomb Labs to CatManStudios Systems; the plugin slug, text domain, and all functions, classes, constants, stored options, and product meta keys now use the `cmss_` prefix. Author remains bryanheadrick.
+
+= 1.3.0 =
+* Rebranded from Plumbline Labs to Aplomb Labs; the plugin slug, text domain, and all functions, classes, constants, stored options, and product meta keys used the `aplb_` prefix.
+
+= 1.2.0 =
+* Updated the plugin slug and text domain to `plumbline-labs-service-schema-for-woocommerce`, the identifier registered on WordPress.org at the time.
+
 = 1.1.0 =
-* Reverted the plugin slug and text domain to `service-schema-for-woocommerce` to match the identifier already registered on WordPress.org; the "Plumbline Labs" branding remains in the plugin name.
+* Reverted the plugin slug and text domain to `service-schema-for-woocommerce` to match the identifier already registered on WordPress.org; the "Plumbline Labs" branding remained in the plugin name.
 * Removed the one-time activation migration for legacy meta/option keys.
 
 = 1.0.0 =
 * update PHP version requirement to match WooCommerce
 
 = 0.1.1 =
-* Rebranded to Plumbline Labs Service Schema For WooCommerce; all functions, classes, constants, stored options, and product meta keys now use the `plbl_` prefix.
+* Rebranded to Plumbline Labs Service Schema For WooCommerce; all functions, classes, constants, stored options, and product meta keys used the `plbl_` prefix.
 
 = 0.1.0 =
 * Initial release.

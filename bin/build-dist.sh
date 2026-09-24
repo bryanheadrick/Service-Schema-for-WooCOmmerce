@@ -10,7 +10,7 @@
 set -euo pipefail
 
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SLUG="service-schema-for-woocommerce"
+SLUG="catmanstudios-systems-service-schema-for-woocommerce"
 VERSION=$(grep -m1 "^Stable tag:" "$PLUGIN_DIR/readme.txt" | sed 's/Stable tag: *//')
 
 BUILD_ROOT="$(mktemp -d)"

@@ -3,7 +3,7 @@
 /**
  * Registers the Service Schema settings section.
  *
- * @package Plumbline_Labs_Service_Schema_For_WooCommerce
+ * @package CatManStudios_Systems_Service_Schema_For_WooCommerce
  */
 
 if (! defined('ABSPATH')) {
@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
 /**
  * Adds the Service Schema section to WooCommerce > Settings > Products.
  */
-class PLBL_Admin_Settings
+class CMSS_Admin_Settings
 {
 
 	/**
@@ -21,7 +21,7 @@ class PLBL_Admin_Settings
 	 *
 	 * @var string
 	 */
-	const SECTION_ID = 'plbl_service_schema';
+	const SECTION_ID = 'cmss_service_schema';
 
 	/**
 	 * Registers hooks.
@@ -40,7 +40,7 @@ class PLBL_Admin_Settings
 	 */
 	public function add_section($sections)
 	{
-		$sections[self::SECTION_ID] = __('Service Schema', 'service-schema-for-woocommerce');
+		$sections[self::SECTION_ID] = __('Service Schema', 'catmanstudios-systems-service-schema-for-woocommerce');
 
 		return $sections;
 	}
@@ -60,38 +60,38 @@ class PLBL_Admin_Settings
 
 		return array(
 			array(
-				'title' => __('Service Schema', 'service-schema-for-woocommerce'),
+				'title' => __('Service Schema', 'catmanstudios-systems-service-schema-for-woocommerce'),
 				'type'  => 'title',
-				'desc'  => __('Default values used for Service products that leave these fields blank.', 'service-schema-for-woocommerce'),
-				'id'    => 'plbl_service_schema_options',
+				'desc'  => __('Default values used for Service products that leave these fields blank.', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'id'    => 'cmss_service_schema_options',
 			),
 			array(
-				'title'   => __('Default Provider Name', 'service-schema-for-woocommerce'),
-				'desc'    => __('Falls back to your site title if left blank.', 'service-schema-for-woocommerce'),
-				'id'      => 'plbl_default_provider',
+				'title'   => __('Default Provider Name', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'desc'    => __('Falls back to your site title if left blank.', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'id'      => 'cmss_default_provider',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
-				'title'   => __('Default Service Type', 'service-schema-for-woocommerce'),
-				'desc'    => __('E.g. "Plumbing" or "Consulting". Left out of the structured data if blank.', 'service-schema-for-woocommerce'),
-				'id'      => 'plbl_default_service_type',
+				'title'   => __('Default Service Type', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'desc'    => __('E.g. "Plumbing" or "Consulting". Left out of the structured data if blank.', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'id'      => 'cmss_default_service_type',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
-				'title'   => __('Default Area Served', 'service-schema-for-woocommerce'),
-				'desc'    => __('E.g. "Greater Boston Area". Left out of the structured data if blank.', 'service-schema-for-woocommerce'),
-				'id'      => 'plbl_default_area_served',
+				'title'   => __('Default Area Served', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'desc'    => __('E.g. "Greater Boston Area". Left out of the structured data if blank.', 'catmanstudios-systems-service-schema-for-woocommerce'),
+				'id'      => 'cmss_default_area_served',
 				'type'    => 'text',
 				'default' => '',
 				'css'     => 'min-width: 300px;',
 			),
 			array(
 				'type' => 'sectionend',
-				'id'   => 'plbl_service_schema_options',
+				'id'   => 'cmss_service_schema_options',
 			),
 		);
 	}

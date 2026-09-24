@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Class PLBL_StructuredDataTest
+ * Class CMSS_StructuredDataTest
  *
- * @package Plumbline_Labs_Service_Schema_For_WooCommerce
+ * @package CatManStudios_Systems_Service_Schema_For_WooCommerce
  */
 
 /**
  * Tests the Service structured data override.
  */
-class PLBL_StructuredDataTest extends WP_UnitTestCase
+class CMSS_StructuredDataTest extends WP_UnitTestCase
 {
 
 	public function test_non_service_product_markup_is_unchanged()
@@ -33,10 +33,10 @@ class PLBL_StructuredDataTest extends WP_UnitTestCase
 	{
 		$product = new WC_Product_Simple();
 		$product->set_regular_price('100.00');
-		$product->update_meta_data('_plbl_is_service', 'yes');
-		$product->update_meta_data('_plbl_service_provider', 'Acme Plumbing');
-		$product->update_meta_data('_plbl_service_type', 'Plumbing');
-		$product->update_meta_data('_plbl_service_area_served', 'Greater Boston Area');
+		$product->update_meta_data('_cmss_is_service', 'yes');
+		$product->update_meta_data('_cmss_service_provider', 'Acme Plumbing');
+		$product->update_meta_data('_cmss_service_type', 'Plumbing');
+		$product->update_meta_data('_cmss_service_area_served', 'Greater Boston Area');
 		$product->save();
 
 		$markup = array(
@@ -65,13 +65,13 @@ class PLBL_StructuredDataTest extends WP_UnitTestCase
 
 	public function test_service_product_falls_back_to_site_defaults()
 	{
-		update_option('plbl_default_provider', 'Default Co');
-		update_option('plbl_default_service_type', 'Consulting');
-		update_option('plbl_default_area_served', 'United States');
+		update_option('cmss_default_provider', 'Default Co');
+		update_option('cmss_default_service_type', 'Consulting');
+		update_option('cmss_default_area_served', 'United States');
 
 		$product = new WC_Product_Simple();
 		$product->set_regular_price('100.00');
-		$product->update_meta_data('_plbl_is_service', 'yes');
+		$product->update_meta_data('_cmss_is_service', 'yes');
 		$product->save();
 
 		$filtered = apply_filters('woocommerce_structured_data_product', array('@type' => 'Product'), $product);
@@ -80,18 +80,18 @@ class PLBL_StructuredDataTest extends WP_UnitTestCase
 		$this->assertSame('Consulting', $filtered['serviceType']);
 		$this->assertSame('United States', $filtered['areaServed']);
 
-		delete_option('plbl_default_provider');
-		delete_option('plbl_default_service_type');
-		delete_option('plbl_default_area_served');
+		delete_option('cmss_default_provider');
+		delete_option('cmss_default_service_type');
+		delete_option('cmss_default_area_served');
 	}
 
 	public function test_service_product_falls_back_to_site_title_when_no_provider_anywhere()
 	{
-		delete_option('plbl_default_provider');
+		delete_option('cmss_default_provider');
 
 		$product = new WC_Product_Simple();
 		$product->set_regular_price('100.00');
-		$product->update_meta_data('_plbl_is_service', 'yes');
+		$product->update_meta_data('_cmss_is_service', 'yes');
 		$product->save();
 
 		$filtered = apply_filters('woocommerce_structured_data_product', array('@type' => 'Product'), $product);
@@ -101,12 +101,12 @@ class PLBL_StructuredDataTest extends WP_UnitTestCase
 
 	public function test_service_type_and_area_served_omitted_when_never_set()
 	{
-		delete_option('plbl_default_service_type');
-		delete_option('plbl_default_area_served');
+		delete_option('cmss_default_service_type');
+		delete_option('cmss_default_area_served');
 
 		$product = new WC_Product_Simple();
 		$product->set_regular_price('100.00');
-		$product->update_meta_data('_plbl_is_service', 'yes');
+		$product->update_meta_data('_cmss_is_service', 'yes');
 		$product->save();
 
 		$filtered = apply_filters('woocommerce_structured_data_product', array('@type' => 'Product'), $product);
